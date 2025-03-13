@@ -21,4 +21,28 @@ export class AuthService {
   register(user: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, user);
   }
+  // Gửi request đăng nhập
+  login(credentials: { email: string, password: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, credentials);
+  }
+
+  // Lưu token vào Local Storage
+  saveToken(token: string) {
+    localStorage.setItem('jwtToken', token);
+  }
+
+  // Lấy token từ Local Storage
+  getToken(): string | null {
+    return localStorage.getItem('jwtToken');
+  }
+
+  // Xóa token khi đăng xuất
+  logout() {
+    localStorage.removeItem('jwtToken');
+  }
+
+  // Kiểm tra user có đang đăng nhập không
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
 }
