@@ -16,16 +16,16 @@ export class RegisterComponent {
 
   constructor(private authService: AuthService) {}
 
-  register() {
-    this.authService.register(this.user).subscribe(
-      (response) => {
-        console.log('Đăng ký thành công:', response);
+  register() {//register là method ko có tham số truyền vào, ko có giá trị trả về (nếu ko định nghĩa kiểu trả về thì hiểu là void)
+    this.authService.register(this.user).subscribe({//Vì register() trả về Observable, nên ta phải subscribe() để lắng nghe kết quả.
+      complete: () => {
+        console.log('Đăng ký thành công:');
         alert('Đăng ký thành công!');
       },
-      (error) => {
-        console.error('Lỗi:', error.error.message);
+      error: (err) => {
+        console.error('Lỗi:', err.error.message);
         alert('Đăng ký thất bại');
       }
-    );
+  });
   }
 }
