@@ -18,31 +18,23 @@ export class AuthService {
 // logMessage(message: string): void {
 //   console.log(message);
 // }
-  register(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, user);
-  }
-  // Gửi request đăng nhập
-  login(credentials: { email: string, password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials);
-  }
+register(user: any): Observable<any> {
+  return this.http.post(`${this.apiUrl}/register`, user, { withCredentials: true });
+}
 
-  // Lưu token vào Local Storage
-  saveToken(token: string) {
-    localStorage.setItem('jwtToken', token);
-  }
+login(credentials: { email: string, password: string }): Observable<any> {
+  return this.http.post(`${this.apiUrl}/login`, credentials, { withCredentials: true });
+}
 
-  // Lấy token từ Local Storage
-  getToken(): string | null {
-    return localStorage.getItem('jwtToken');
-  }
+// 🛑 KHÔNG cần lưu token vào localStorage nữa
+// 🛑 KHÔNG cần getToken() vì trình duyệt tự gửi cookie khi gọi API
 
-  // Xóa token khi đăng xuất
-  logout() {
-    localStorage.removeItem('jwtToken');
-  }
+logout(): Observable<any> {
+  return this.http.post(`${this.apiUrl}/logout`, {}, { withCredentials: true });
+}
 
-  // Kiểm tra user có đang đăng nhập không
-  isLoggedIn(): boolean {
-    return !!this.getToken();
-  }
+// Kiểm tra user có đăng nhập không (dựa vào API)
+isLoggedIn(): Observable<boolean> {
+  return this.http.get<boolean>(`${this.apiUrl}/isLoggedIn`, { withCredentials: true });
+}
 }

@@ -13,7 +13,6 @@ export class RegisterComponent {
     email: '',
     password: ''
   };
-
   constructor(private authService: AuthService) {}
 
   register() {//register là method ko có tham số truyền vào, ko có giá trị trả về (nếu ko định nghĩa kiểu trả về thì hiểu là void)

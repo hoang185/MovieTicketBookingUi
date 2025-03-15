@@ -1,0 +1,23 @@
+
+        <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let movie of movies" class="movie-slide">
+              <img [src]="movie.imageUrl" [alt]="movie.title">
+              <div class="movie-info">
+                <span class="age-rating">{{ movie.ageRating }}</span>
+                <span class="sneak-show" *ngIf="movie.sneakShow">SNEAK SHOW</span>
+              </div>
+              <h3>{{ movie.title }}</h3>
+              <div class="buttons">
+                <button appHighLight (click)="viewDetails(movie)">XEM CHI TIẾT</button>
+                <button (click)="buyTicket(movie)">MUA VÉ</button>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+          
+          <!-- Nút điều hướng -->
+        <button class="prev-btn" (click)="slickModal.slickPrev()">❮</button>
+        <button class="next-btn" (click)="slickModal.slickNext()">❯</button>
+
+
+
+

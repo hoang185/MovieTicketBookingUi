@@ -1,0 +1,90 @@
+.slider-container {
+  max-width: 1200px; /* Hoặc một giá trị phù hợp */
+  margin: 0 auto; /* Căn giữa */
+}
+.slider {
+  // display: flex;
+  justify-content: center;
+  // overflow: hidden;
+}
+
+.movie-slide {
+    text-align: center;
+    padding: 10px;
+  
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  
+    .movie-info {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+  
+      button {
+        flex: 1;
+        margin: 5px;
+        padding: 8px;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+  
+      button:first-child {
+        background: red;
+        color: white;
+      }
+  
+      button:last-child {
+        background: orange;
+        color: white;
+      }
+  
+      button:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
+  .slick-prev, .slick-next {
+    font-size: 24px;
+    background: transparent;
+    color: black;
+    border: none;
+  }
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 100;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  .prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

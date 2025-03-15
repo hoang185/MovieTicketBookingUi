@@ -1,21 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
 
+//withCredentials: true là một tùy chọn trong Angular's HttpClient giúp gửi cookie, authentication headers, 
+// và chứng chỉ cùng với request tới một domain khác.
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
-
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.authService.getToken();
+    const modifiedReq = req.clone({
+      withCredentials: true // Gửi cookie HttpOnly trong request
+    });
 
-    if (token) {
-      req = req.clone({
-        setHeaders: { Authorization: `Bearer ${token}` }
-      });
-    }
-    
-    return next.handle(req);
+    return next.handle(modifiedReq);
   }
 }

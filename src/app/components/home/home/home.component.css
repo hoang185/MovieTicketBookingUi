@@ -1,0 +1,6 @@
+.main {
+max-width: 960px;
+position: relative;
+margin: 0 auto;
+}
+/* relative thì sẽ căn chỉnh dựa trên vị trí của chính nó còn absolute thì dựa vào vị trí relative gần nhất */

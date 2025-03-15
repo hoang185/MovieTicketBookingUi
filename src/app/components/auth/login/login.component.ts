@@ -19,7 +19,6 @@ export class LoginComponent {
       next: (response) => {
         console.log('Đăng nhập thành công:', response);
         if (response.success) {
-          this.authService.saveToken(response.data); // Lưu token vào localStorage
           alert('Đăng nhập thành công!');
           this.router.navigate(['/admin']); // Chuyển hướng sau khi đăng nhập
         }
@@ -28,7 +27,7 @@ export class LoginComponent {
         }
       },
       error: (error) => {
-        console.error('Lỗi đăng nhập:', error.error.message);
+        console.error('Lỗi đăng nhập:', error.message);
         alert('Đăng nhập thất bại!');
       }
     });
