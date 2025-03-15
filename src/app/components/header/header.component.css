@@ -32,3 +32,18 @@ nav ul li a {
 .user-actions input {
     padding: 5px;
 }
+
+/* Style cho nút đăng xuất */
+.logout-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background: #b71c1c;
+}
