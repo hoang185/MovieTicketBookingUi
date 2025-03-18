@@ -1,0 +1,23 @@
+<div class="movie-detail" *ngIf="movie; else loadingTemplate">
+    <h2 class="movie-title">{{ movie.movieName }}</h2>
+    
+    <div class="movie-content">
+      <img [src]="movie.imageUrl" alt="{{ movie.movieName }}" class="movie-poster" />
+  
+      <div class="movie-info">
+        <p><strong>Đạo diễn:</strong> {{ movie.director }}</p>
+        <p><strong>Diễn viên:</strong> {{ movie.actor }}</p>
+        <p><strong>Thể loại:</strong> {{ movie.movieType }}</p>
+        <p><strong>Rated:</strong> {{ movie.rating }}</p>
+        
+        <div class="buttons">
+          <button class="btn-buy">🎟️ MUA VÉ</button>
+          <button class="btn-like">👍 Like</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <p>Đang tải...</p>
+  </ng-template>

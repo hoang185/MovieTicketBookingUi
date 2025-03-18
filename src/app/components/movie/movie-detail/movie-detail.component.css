@@ -1,0 +1,67 @@
+.movie-detail {
+    font-family: Arial, sans-serif;
+    background-color: #fdf8eb;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .movie-title {
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .movie-content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .movie-poster {
+    width: 180px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-info {
+    flex: 1;
+  }
+  
+  .movie-info p {
+    font-size: 16px;
+    margin: 6px 0;
+  }
+  
+  .movie-info strong {
+    color: #333;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .btn-buy, .btn-like {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .btn-like {
+    background-color: #007bff;
+  }
+  
+  .btn-buy:hover {
+    background-color: #b71c1c;
+  }
+  
+  .btn-like:hover {
+    background-color: #0056b3;
+  }
+  

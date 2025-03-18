@@ -1,14 +1,13 @@
 
         <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
             <div ngxSlickItem *ngFor="let movie of movies" class="movie-slide">
-              <img [src]="movie.imageUrl" [alt]="movie.title">
+              <img [src]="movie.imageUrl" [alt]="movie.movieName">
               <div class="movie-info">
-                <span class="age-rating">{{ movie.ageRating }}</span>
-                <span class="sneak-show" *ngIf="movie.sneakShow">SNEAK SHOW</span>
+                <span class="age-rating">{{ movie.rating }}</span>
               </div>
-              <h3>{{ movie.title }}</h3>
+              <h3>{{ movie.movieName }}</h3>
               <div class="buttons">
-                <button appHighLight (click)="viewDetails(movie)">XEM CHI TIẾT</button>
+                <button appHighLight (click)="viewDetails(movie.id)">XEM CHI TIẾT</button>
                 <button (click)="buyTicket(movie)">MUA VÉ</button>
               </div>
             </div>

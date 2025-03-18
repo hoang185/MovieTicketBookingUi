@@ -7,14 +7,15 @@ import { HomeComponent } from './components/home/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AppRoutes } from './common/routes';
+import { MovieDetailComponent } from './components/movie/movie-detail/movie-detail.component';
 
 const routes: Routes = [
-  {path: AppRoutes.HOME, component: HomeComponent},
-  {path: AppRoutes.REGISTER, component: RegisterComponent}, // Định nghĩa URL cho trang đăng ký
-  { path: AppRoutes.LOGIN, component: LoginComponent },
-  { path: AppRoutes.ADMIN, component: AdminComponent, canActivate: [AuthGuard] }, // Chỉ vào được nếu đã đăng nhập
-  // { path: AppRoutes.ADMIN, redirectTo: '/login', pathMatch: 'full' }, // Mặc định chuyển hướng đến Login
-  { path: 'movies', component: MovieComponent , canActivate: [AuthGuard]}// vào được trang movies nhưng phải đăng nhập mới lấy được tài nguyên
+  {path: '', component: HomeComponent},
+  {path: 'register', component: RegisterComponent}, // Định nghĩa URL cho trang đăng ký
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }, // Chỉ vào được nếu đã đăng nhập
+  { path: 'movies', component: MovieComponent , canActivate: [AuthGuard]},// vào được trang movies nhưng phải đăng nhập mới lấy được tài nguyên
+  {path: 'movie/:id', component: MovieDetailComponent}
 ];
 
 @NgModule({

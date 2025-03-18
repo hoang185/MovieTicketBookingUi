@@ -15,6 +15,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeComponent } from './components/home/home/home.component';
 import { HighLightDirective } from './directives/high-light/high-light.directive';
 import { MovieComponent } from './components/movie/movie.component';
+import { MovieDetailComponent } from './components/movie/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MovieComponent } from './components/movie/movie.component';
     HomeComponent,
     HighLightDirective,
     MovieComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,
