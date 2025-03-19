@@ -16,6 +16,8 @@ import { HomeComponent } from './components/home/home/home.component';
 import { HighLightDirective } from './directives/high-light/high-light.directive';
 import { MovieComponent } from './components/movie/movie.component';
 import { MovieDetailComponent } from './components/movie/movie-detail/movie-detail.component';
+import { DetailComponent } from './components/home/movie-slider/detail/detail.component';
+import { MovieBookingPopupComponent } from './components/home/movie-booking-popup/movie-booking-popup.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { MovieDetailComponent } from './components/movie/movie-detail/movie-deta
     HighLightDirective,
     MovieComponent,
     MovieDetailComponent,
+    DetailComponent,
+    MovieBookingPopupComponent,
   ],
   imports: [
     BrowserModule,

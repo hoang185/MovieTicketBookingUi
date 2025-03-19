@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class MovieSliderComponent implements OnInit {
   constructor(private movieService: MovieService, private router: Router) {}
   movies: Movie[] = [];
+  selectedMovie: any = null;
+  showPopup: boolean = false;
 
   slideConfig = {
     slidesToShow: 4,
@@ -31,11 +33,16 @@ export class MovieSliderComponent implements OnInit {
     });
   }
 
-  viewDetails(movieId: number) {
+  viewDetails(movie: any) {
+    this.selectedMovie = movie;
+    this.showPopup = true;
+  }
+
+  buyTicket(movieId: number) {
     this.router.navigate(['/movie', movieId]);
   }
 
-  buyTicket(movie: any) {
-    console.log(`Mua vé: ${movie.movieName}`);
+  closePopup() {
+    this.showPopup = false;
   }
 }

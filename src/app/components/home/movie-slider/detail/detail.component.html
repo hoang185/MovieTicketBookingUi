@@ -1,0 +1,9 @@
+<div class="overlay" *ngIf="show" (click)="closePopup()">
+    <div class="popup" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closePopup()">✖</button>
+      <h2>{{ movie?.movieName }}</h2>
+      <p><strong>Năm sản xuất:</strong> {{ movie?.rating }}</p>
+      <p><strong>Mô tả:</strong> {{ movie?.rating }}</p>
+    </div>
+  </div>
+  

@@ -1,22 +1,20 @@
+<ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
+  <div ngxSlickItem *ngFor="let movie of movies" class="movie-slide">
+    <img [src]="movie.imageUrl" [alt]="movie.movieName">
+    <div class="movie-info">
+      <span class="age-rating">{{ movie.rating }}</span>
+    </div>
+    <h3>{{ movie.movieName }}</h3>
+    <div class="buttons">
+      <button appHighLight (click)="viewDetails(movie)">XEM CHI TIẾT</button>
+      <button (click)="buyTicket(movie.id)">MUA VÉ</button>
+    </div>
+  </div>
+</ngx-slick-carousel>
 
-        <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
-            <div ngxSlickItem *ngFor="let movie of movies" class="movie-slide">
-              <img [src]="movie.imageUrl" [alt]="movie.movieName">
-              <div class="movie-info">
-                <span class="age-rating">{{ movie.rating }}</span>
-              </div>
-              <h3>{{ movie.movieName }}</h3>
-              <div class="buttons">
-                <button appHighLight (click)="viewDetails(movie.id)">XEM CHI TIẾT</button>
-                <button (click)="buyTicket(movie)">MUA VÉ</button>
-              </div>
-            </div>
-          </ngx-slick-carousel>
-          
-          <!-- Nút điều hướng -->
-        <button class="prev-btn" (click)="slickModal.slickPrev()">❮</button>
-        <button class="next-btn" (click)="slickModal.slickNext()">❯</button>
+<!-- Nút điều hướng -->
+<button class="prev-btn" (click)="slickModal.slickPrev()">❮</button>
+<button class="next-btn" (click)="slickModal.slickNext()">❯</button>
 
-
-
-
+<!-- Gọi MovieDetailComponent và truyền, nhận dữ liệu -->
+<app-detail [movie]="selectedMovie" [show]="showPopup" (closePopupEvent)="closePopup()"></app-detail>
