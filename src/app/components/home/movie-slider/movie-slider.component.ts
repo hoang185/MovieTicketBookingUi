@@ -12,8 +12,10 @@ import { Router } from '@angular/router';
 export class MovieSliderComponent implements OnInit {
   constructor(private movieService: MovieService, private router: Router) {}
   movies: Movie[] = [];
+  movie: any = null;
   selectedMovie: any = null;
-  showPopup: boolean = false;
+  showDetailPopup: boolean = false;
+  showTicketPopup: boolean = false;
 
   slideConfig = {
     slidesToShow: 4,
@@ -34,15 +36,20 @@ export class MovieSliderComponent implements OnInit {
   }
 
   viewDetails(movie: any) {
-    this.selectedMovie = movie;
-    this.showPopup = true;
+    this.movie = movie;
+    this.showDetailPopup = true;
   }
 
-  buyTicket(movieId: number) {
-    this.router.navigate(['/movie', movieId]);
+  buyTicket(movieName: any) {
+    this.showTicketPopup = true;
+    this.selectedMovie = movieName;
+  }
+
+  closeTicketPopup() {
+    this.showTicketPopup = false;
   }
 
   closePopup() {
-    this.showPopup = false;
+    this.showDetailPopup = false;
   }
 }

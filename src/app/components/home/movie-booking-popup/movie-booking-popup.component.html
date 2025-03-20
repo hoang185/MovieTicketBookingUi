@@ -1,1 +1,37 @@
-<p>movie-booking-popup works!</p>
+<div class="booking-popup-overlay" [class.show]="showTicketPopup" (click)="closePopupOutside($event)">
+    <div class="booking-popup" (click)="$event.stopPropagation()">
+
+        <!-- Chọn Ngày -->
+        <div class="date-picker">
+            <button *ngFor="let item of data" (click)="selectedDate = item" [class.active]="selectedDate === item">
+                {{ item.date }}/{{ item.month }} {{ item.day }}
+            </button>
+        </div>
+
+        <!-- Chọn Thành Phố -->
+        <div class="city-picker" *ngIf="selectedDate">
+            <button *ngFor="let city of selectedDate.cities" (click)="selectedCity = city"
+                [class.active]="selectedCity === city">
+                {{ city.city }}
+            </button>
+        </div>
+
+        <!-- Danh sách rạp và khung giờ -->
+        <div class="cinema-list" *ngIf="selectedCity">
+            <div *ngFor="let cinema of selectedCity.cinemas" class="cinema-item">
+                <h3>{{ cinema.name }}</h3>
+                <div class="showtimes">
+                    <button *ngFor="let time of cinema.times" class="time-btn"
+                        [class.active]="selectedTime === time && selectedCinema === cinema.name"
+                        (click)="selectTime(cinema.name, time)">
+                        {{ time }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nút Chọn Ghế -->
+        <button class="select-seat-btn" (click)="goToSeatSelection()">Chọn ghế</button>
+
+    </div>
+</div>
