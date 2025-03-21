@@ -37,4 +37,10 @@ logout(): Observable<any> {
 isLoggedIn(): Observable<boolean> {
   return this.http.get<boolean>(`${this.apiUrl}/isLoggedIn`, { withCredentials: true });
 }
+
+getUserIdFromCookie(): string | null {
+  const cookies = document.cookie.split('; ');
+  const userIdCookie = cookies.find(row => row.startsWith('userId='));
+  return userIdCookie ? userIdCookie.split('=')[1] : null;
+}
 }

@@ -7,7 +7,7 @@
     <h3>{{ movie.movieName }}</h3>
     <div class="buttons">
       <button appHighLight (click)="viewDetails(movie)">XEM CHI TIẾT</button>
-      <button (click)="buyTicket(movie.movieName)">MUA VÉ</button>
+      <button (click)="buyTicket(movie)">MUA VÉ</button>
     </div>
   </div>
 </ngx-slick-carousel>
@@ -17,7 +17,7 @@
 <button class="next-btn" (click)="slickModal.slickNext()">❯</button>
 
 <!-- Gọi MovieDetailComponent và truyền, nhận dữ liệu -->
-<app-detail [movie]="movie" [show]="showDetailPopup" (closePopupEvent)="closePopup()"></app-detail>
+<app-detail [selectedMovie]="selectedMovie" [show]="showDetailPopup" (closePopupEvent)="closePopup()"></app-detail>
 
 <!-- Popup Buy Ticket Component -->
 <app-movie-booking-popup 

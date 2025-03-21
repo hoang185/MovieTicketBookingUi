@@ -1,0 +1,110 @@
+.screen {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.seat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.normal {
+    background-color: #e8f5e9;
+    border: 1px solid #66bb6a;
+}
+
+.vip {
+    background-color: #ffe0b2;
+    border: 1px solid #fb8c00;
+}
+
+.sweetbox {
+    background-color: #f8bbd0;
+    border: 1px solid #e91e63;
+}
+
+.selected {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.unavailable {
+    background-color: #bdbdbd;
+    /* Màu xám nhạt */
+    cursor: not-allowed;
+    position: relative;
+    border: 1px solid #9e9e9e;
+    /* Viền nhẹ hơn */
+}
+
+/* Thêm dấu X đẹp hơn vào ghế không thể chọn */
+.unavailable::after {
+    content: "\2716";
+    /* Unicode dấu X (✖) */
+    color: #ff5252;
+    /* Đỏ nhạt */
+    font-size: 24px;
+    font-weight: normal;
+    /* Mỏng hơn */
+    opacity: 0.8;
+    /* Nhẹ hơn */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.seat-select {
+    position: relative;
+}
+
+.next-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #d32f2f;
+    /* Màu đỏ đậm */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #b71c1c;
+    /* Đỏ tối hơn khi hover */
+}
+
+.icon {
+    font-size: 20px;
+}

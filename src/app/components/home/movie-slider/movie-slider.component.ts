@@ -12,8 +12,12 @@ import { Router } from '@angular/router';
 export class MovieSliderComponent implements OnInit {
   constructor(private movieService: MovieService, private router: Router) {}
   movies: Movie[] = [];
-  movie: any = null;
-  selectedMovie: any = null;
+  selectedMovie: Movie = {
+    id: 0,
+    movieName: '',
+    imageUrl: '',
+    rating: ''
+  };
   showDetailPopup: boolean = false;
   showTicketPopup: boolean = false;
 
@@ -35,14 +39,14 @@ export class MovieSliderComponent implements OnInit {
     });
   }
 
-  viewDetails(movie: any) {
-    this.movie = movie;
+  viewDetails(movie: Movie) {
+    this.selectedMovie = movie;
     this.showDetailPopup = true;
   }
 
-  buyTicket(movieName: any) {
+  buyTicket(movie: Movie) {
     this.showTicketPopup = true;
-    this.selectedMovie = movieName;
+    this.selectedMovie = movie;
   }
 
   closeTicketPopup() {

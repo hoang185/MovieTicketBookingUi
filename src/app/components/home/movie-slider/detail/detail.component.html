@@ -1,8 +1,8 @@
 <div class="overlay" *ngIf="show" (click)="closePopup()">
     <div class="popup" (click)="$event.stopPropagation()">
-      <h2>{{ movie?.movieName }}</h2>
-      <p><strong>Năm sản xuất:</strong> {{ movie?.rating }}</p>
-      <p><strong>Mô tả:</strong> {{ movie?.rating }}</p>
+      <h2>{{ selectedMovie?.movieName }}</h2>
+      <p><strong>Năm sản xuất:</strong> {{ selectedMovie?.rating }}</p>
+      <p><strong>Mô tả:</strong> {{ selectedMovie?.rating }}</p>
     </div>
   </div>
   

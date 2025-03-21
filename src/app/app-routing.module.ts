@@ -9,6 +9,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AppRoutes } from './common/routes';
 import { MovieDetailComponent } from './components/movie/movie-detail/movie-detail.component';
 import { SeatSelectComponent } from './components/movie/seat-select/seat-select.component';
+import { CheckoutComponent } from './components/movie/checkout/checkout.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'movies', component: MovieComponent , canActivate: [AuthGuard]},// vào được trang movies nhưng phải đăng nhập mới lấy được tài nguyên
   {path: 'movie/:id', component: MovieDetailComponent},
   {path: 'seat-select', component: SeatSelectComponent, canActivate: [AuthGuard]},
+  {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

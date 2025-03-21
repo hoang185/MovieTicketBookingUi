@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter, SimpleChanges, ChangeDetectorRe
   styleUrl: './detail.component.css'
 })
 export class DetailComponent {
-  @Input() movie: any; // Nhận dữ liệu phim từ component cha
+  @Input() selectedMovie: any; // Nhận dữ liệu phim từ component cha
   @Input() show: boolean = false; // Điều khiển hiển thị popup
   @Output() closePopupEvent = new EventEmitter<void>();//// Sự kiện gửi về cha khi đóng popup
 

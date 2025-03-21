@@ -1,7 +1,34 @@
-<h2>Thông tin đặt vé</h2>
-<p><strong>Tên Phim:</strong> {{ selectedData.movieName }}</p>
-<p><strong>Ngày:</strong> {{ selectedData.date }} ({{ selectedData.day }})</p>
-<p><strong>Thành phố:</strong> {{ selectedData.city }}</p>
-<p><strong>Rạp:</strong> {{ selectedData.cinema }}</p>
-<p><strong>Giờ chiếu:</strong> {{ selectedData.time }}</p>
+<div class="seat-select">
+    <h2>Thông tin đặt vé</h2>
+    <p><strong>Tên Phim:</strong> {{ selectedData.movieName }}</p>
+    <p><strong>Ngày:</strong> {{ selectedData.date }} </p>
+    <p><strong>Thành phố:</strong> {{ selectedData.city }}</p>
+    <p><strong>Rạp:</strong> {{ selectedData.cinema }}</p>
+    <p><strong>Giờ chiếu:</strong> {{ selectedData.time }}</p>
+    <div class="screen">SCREEN</div>
+    <div class="seat-container">
+      <div *ngFor="let row of seats">
+        <span 
+          *ngFor="let seat of row" 
+          [class]="getSeatClass(seat)"
+          (click)="selectSeat(seat)"
+        >
+          {{ seat.id }}
+        </span>
+      </div>
+    </div>
+    
+    <div class="legend">
+      <div><span class="seat normal"></span> Thường</div>
+      <div><span class="seat vip"></span> VIP</div>
+      <div><span class="seat sweetbox"></span> Sweetbox</div>
+      <div><span class="seat selected"></span> Đã chọn</div>
+      <div><span class="seat unavailable"></span> Không thể chọn</div>
+    </div>
+    
+    <button class="next-button" (click)="goToNextPage()">
+        <span class="icon">➡</span> NEXT
+      </button>
+</div>
+
 

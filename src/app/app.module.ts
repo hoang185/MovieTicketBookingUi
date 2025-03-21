@@ -19,6 +19,7 @@ import { MovieDetailComponent } from './components/movie/movie-detail/movie-deta
 import { DetailComponent } from './components/home/movie-slider/detail/detail.component';
 import { MovieBookingPopupComponent } from './components/home/movie-booking-popup/movie-booking-popup.component';
 import { SeatSelectComponent } from './components/movie/seat-select/seat-select.component';
+import { CheckoutComponent } from './components/movie/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SeatSelectComponent } from './components/movie/seat-select/seat-select.
     DetailComponent,
     MovieBookingPopupComponent,
     SeatSelectComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

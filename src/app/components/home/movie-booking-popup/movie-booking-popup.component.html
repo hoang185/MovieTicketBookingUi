@@ -4,7 +4,7 @@
         <!-- Chọn Ngày -->
         <div class="date-picker">
             <button *ngFor="let item of data" (click)="selectedDate = item" [class.active]="selectedDate === item">
-                {{ item.date }}/{{ item.month }} {{ item.day }}
+                {{ item.date.getDate() }}-{{ item.date.getMonth() }}
             </button>
         </div>
 
@@ -23,7 +23,7 @@
                 <div class="showtimes">
                     <button *ngFor="let time of cinema.times" class="time-btn"
                         [class.active]="selectedTime === time && selectedCinema === cinema.name"
-                        (click)="selectTime(cinema.name, time)">
+                        (click)="selectTime(cinema.id, cinema.name, time)">
                         {{ time }}
                     </button>
                 </div>
